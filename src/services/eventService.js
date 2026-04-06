@@ -1,0 +1,80 @@
+import { supabase } from "./supabaseClient.js";
+import { mapEvent } from "../utils/helpers.js";
+import { store } from "../state/store.js";
+
+export async function fetchEventsForClub(clubId, sortField = "created_at", ascending = false) {
+  const { data, error } = await supabase
+    .from("events")
+    .select("*")
+    .eq("club_id", clubId)
+    .order(sortField, { ascending });
+
+  if (error) throw error;
+  return (data || []).map(mapEvent);
+}
+
+export async function fetchDiscoverySchools() {
+  const { data, error } = await supabase
+    .from("clubs")
+    .select("school")
+    .eq("status", "active");
+
+  if (error) throw error;
+  return [...new Set((data || []).map((row) => row.school).filter(Boolean))];
+}
+
+export async function fetchActiveClubsBySchool(school) {
+  const { data, error } = await supabase
+    .from("clubs")
+    .select("*, events(*)")
+    .eq("school", school)
+    .eq("status", "active");
+
+  if (error) throw error;
+  return data || [];
+}
+
+export async function createEvent(payload) {
+  const { data, error } = await supabase
+    .from("events")
+    .insert({
+      club_id: store.state.activeClub.id,
+      title: payload.title,
+      date: payload.date,
+      start_time: payload.startTime,
+      end_time: payload.endTime,
+      address: payload.address,
+      room: payload.room || null,
+      attire: payload.attire || null,
+      category: payload.category,
+      description: payload.description || null,
+      rsvp_url: payload.rsvp || null,
+      download_count: 0
+    })
+    .select()
+    .single();
+
+  if (error) throw error;
+  return mapEvent(data);
+}
+
+export async function deleteEvent(eventId) {
+  const { error } = await supabase
+    .from("events")
+    .delete()
+    .eq("id", eventId);
+
+  if (error) throw error;
+}
+
+export async function updateEventDownloadCount(eventItem) {
+  const nextCount = (eventItem.download_count || 0) + 1;
+  const { error } = await supabase
+    .from("events")
+    .update({ download_count: nextCount })
+    .eq("id", eventItem.id);
+
+  if (error) throw error;
+  eventItem.download_count = nextCount;
+  return nextCount;
+}

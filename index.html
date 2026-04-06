@@ -2,37 +2,32 @@
 <html lang="en">
 <head>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.3/dist/umd/supabase.min.js"></script>
-  <script>
-    const SUPABASE_URL = 'https://edcnllalkavncijrewno.supabase.co';
-    const SUPABASE_ANON_KEY = 'sb_publishable_TGCM03zUEwuO7ibEXBWNfA_VJt-jHOC';
-    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Club Cal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --navy: #0f1b35;
-      --navy-2: #17284d;
-      --coral: #ff5c35;
-      --coral-dark: #e04823;
-      --warm: #fafaf7;
-      --card: #f4f4f0;
-      --line: rgba(15, 27, 53, 0.1);
-      --text: #18233d;
-      --muted: #60708e;
-      --success: #17895b;
-      --success-bg: #e8f7ef;
-      --amber: #fff3cd;
-      --amber-text: #7c5a06;
-      --danger: #b3261e;
-      --danger-bg: #fff2f0;
-      --shadow: 0 20px 50px rgba(15, 27, 53, 0.1);
-      --radius: 16px;
-      --radius-lg: 28px;
+      --navy: #0f172a;
+      --navy-2: #334155;
+      --coral: #2563eb;
+      --coral-dark: #1d4ed8;
+      --warm: #f8fafc;
+      --card: #ffffff;
+      --line: #e2e8f0;
+      --text: #0f172a;
+      --muted: #64748b;
+      --success: #16a34a;
+      --success-bg: #f0fdf4;
+      --amber: #fef3c7;
+      --amber-text: #92400e;
+      --danger: #dc2626;
+      --danger-bg: #fef2f2;
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+      --radius: 8px;
+      --radius-lg: 10px;
       --max: 1180px;
     }
 
@@ -46,12 +41,9 @@
 
     body {
       margin: 0;
-      font-family: "DM Sans", sans-serif;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(255, 92, 53, 0.12), transparent 28%),
-        radial-gradient(circle at top right, rgba(15, 27, 53, 0.08), transparent 30%),
-        linear-gradient(180deg, #fdfcf8 0%, var(--warm) 35%, #f7f7f3 100%);
+      background: var(--warm);
       min-height: 100vh;
     }
 
@@ -91,9 +83,9 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      backdrop-filter: blur(20px);
-      background: rgba(250, 250, 247, 0.82);
-      border-bottom: 1px solid rgba(15, 27, 53, 0.06);
+      backdrop-filter: blur(16px);
+      background: rgba(248, 250, 252, 0.94);
+      border-bottom: 1px solid var(--line);
     }
 
     .topbar-inner {
@@ -118,12 +110,12 @@
     .brand-mark {
       width: 42px;
       height: 42px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, var(--coral), #ff8668);
+      border-radius: 10px;
+      background: var(--navy);
       color: white;
       display: grid;
       place-items: center;
-      box-shadow: 0 14px 30px rgba(255, 92, 53, 0.22);
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
     }
 
     .brand-name {
@@ -133,9 +125,9 @@
     .nav-toggle {
       width: 48px;
       height: 48px;
-      border-radius: 14px;
-      border: 1px solid rgba(15, 27, 53, 0.08);
-      background: rgba(255, 255, 255, 0.82);
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: white;
       display: none;
       align-items: center;
       justify-content: center;
@@ -196,7 +188,7 @@
 
     .nav-link:hover,
     .nav-link:focus-visible {
-      background: rgba(15, 27, 53, 0.06);
+      background: #eff6ff;
       color: var(--navy);
       outline: none;
     }
@@ -232,7 +224,7 @@
     }
 
     .hero {
-      padding: 54px 0 28px;
+      padding: 64px 0 36px;
       display: grid;
       grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
       gap: 32px;
@@ -240,7 +232,7 @@
     }
 
     .hero-copy {
-      padding: 18px 0;
+      padding: 8px 0;
     }
 
     .eyebrow {
@@ -249,10 +241,10 @@
       gap: 8px;
       padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(255, 92, 53, 0.12);
+      background: #eff6ff;
       color: var(--coral-dark);
-      font-size: 0.92rem;
-      font-weight: 700;
+      font-size: 0.86rem;
+      font-weight: 600;
       margin-bottom: 18px;
     }
 
@@ -260,8 +252,8 @@
     .section-title,
     .view h2,
     .dashboard-title {
-      font-family: "Playfair Display", serif;
-      line-height: 0.98;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.08;
       letter-spacing: -0.03em;
       margin: 0;
       color: var(--navy);
@@ -272,8 +264,8 @@
     }
 
     .hero-title {
-      font-size: clamp(3rem, 7vw, 5.4rem);
-      max-width: 11ch;
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      max-width: 12ch;
     }
 
     .hero-copy p,
@@ -284,9 +276,9 @@
     }
 
     .hero-copy p {
-      font-size: 1.08rem;
+      font-size: 1rem;
       margin: 18px 0 22px;
-      max-width: 58ch;
+      max-width: 60ch;
     }
 
     .hero-actions {
@@ -306,16 +298,16 @@
     .event-card,
     .settings-card,
     .insights-card {
-      background: rgba(255, 255, 255, 0.76);
+      background: var(--card);
       border: 1px solid var(--line);
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow);
     }
 
     .hero-search-panel {
-      padding: 18px;
+      padding: 20px;
       margin-bottom: 20px;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(244, 244, 240, 0.94));
+      background: var(--card);
     }
 
     .hero-search-label {
@@ -329,10 +321,8 @@
       padding: 28px;
       position: relative;
       overflow: hidden;
-      min-height: 420px;
-      background:
-        linear-gradient(180deg, rgba(15, 27, 53, 0.98), rgba(23, 40, 77, 0.95)),
-        linear-gradient(135deg, rgba(255, 92, 53, 0.25), transparent);
+      min-height: 360px;
+      background: linear-gradient(180deg, #0f172a, #1e293b);
       color: white;
     }
 
@@ -346,7 +336,7 @@
     .hero-panel::before {
       width: 220px;
       height: 220px;
-      background: rgba(255, 92, 53, 0.18);
+      background: rgba(37, 99, 235, 0.14);
       top: -70px;
       right: -40px;
     }
@@ -354,7 +344,7 @@
     .hero-panel::after {
       width: 130px;
       height: 130px;
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.05);
       bottom: 40px;
       left: -30px;
     }
@@ -363,14 +353,14 @@
       display: inline-flex;
       padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.08);
-      font-size: 0.85rem;
-      font-weight: 700;
+      background: rgba(255, 255, 255, 0.1);
+      font-size: 0.8rem;
+      font-weight: 600;
       margin-bottom: 22px;
     }
 
     .hero-panel-title {
-      font-size: 2.4rem;
+      font-size: 2rem;
       color: white;
       margin: 0 0 10px;
       position: relative;
@@ -378,7 +368,7 @@
     }
 
     .hero-panel-copy {
-      color: rgba(255, 255, 255, 0.76);
+      color: rgba(255, 255, 255, 0.78);
       line-height: 1.7;
       max-width: 28ch;
       margin: 0;
@@ -400,7 +390,7 @@
       gap: 14px;
       align-items: center;
       padding: 16px;
-      border-radius: 20px;
+      border-radius: 10px;
       background: rgba(255, 255, 255, 0.06);
       border: 1px solid rgba(255, 255, 255, 0.08);
     }
@@ -421,7 +411,7 @@
 
     .social-proof {
       text-align: center;
-      padding: 8px 0 24px;
+      padding: 12px 0 36px;
       color: var(--muted);
       font-size: 1rem;
       line-height: 1.8;
@@ -430,7 +420,7 @@
     }
 
     .section {
-      padding: 30px 0;
+      padding: 44px 0;
     }
 
     .section-head {
@@ -438,7 +428,7 @@
       align-items: end;
       justify-content: space-between;
       gap: 16px;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
 
     .section-head.compact {
@@ -446,7 +436,7 @@
     }
 
     .section-title {
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
     }
 
     .flow-grid {
@@ -473,7 +463,7 @@
     .preview-card:hover,
     .insights-card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 26px 50px rgba(15, 27, 53, 0.13);
+      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.08);
     }
 
     .flow-tag,
@@ -489,8 +479,8 @@
     }
 
     .flow-tag {
-      background: rgba(15, 27, 53, 0.07);
-      color: var(--navy);
+      background: #eff6ff;
+      color: var(--coral-dark);
       margin-bottom: 14px;
     }
 
@@ -510,16 +500,16 @@
 
     .card-heading,
     .settings-heading {
-      font-size: 1.45rem;
+      font-size: 1.2rem;
     }
 
     .preview-heading {
-      font-size: 1.55rem;
+      font-size: 1.3rem;
     }
 
     .event-heading {
-      font-size: 1.35rem;
-      margin-bottom: 8px;
+      font-size: 1.12rem;
+      margin-bottom: 6px;
     }
 
     .card-text-top {
@@ -532,21 +522,21 @@
 
     .helper-link {
       color: var(--coral-dark);
-      font-weight: 700;
+      font-weight: 600;
     }
 
     .btn {
       border: 0;
       cursor: pointer;
-      border-radius: 14px;
-      padding: 15px 18px;
-      font-weight: 700;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-weight: 600;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
       transition: transform 150ms ease, box-shadow 180ms ease, background 180ms ease, color 180ms ease;
-      box-shadow: 0 12px 24px rgba(15, 27, 53, 0.08);
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
     }
 
     .btn:active {
@@ -558,7 +548,7 @@
     select:focus-visible,
     textarea:focus-visible {
       outline: none;
-      box-shadow: 0 0 0 4px rgba(255, 92, 53, 0.18);
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.16);
     }
 
     .btn-primary {
@@ -568,14 +558,14 @@
 
     .btn-primary:hover {
       background: var(--coral-dark);
-      box-shadow: 0 18px 36px rgba(255, 92, 53, 0.22);
+      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.18);
       transform: translateY(-1px);
     }
 
     .btn-secondary {
-      background: white;
+      background: #f8fafc;
       color: var(--navy);
-      border: 1px solid rgba(15, 27, 53, 0.08);
+      border: 1px solid var(--line);
     }
 
     .btn-secondary:hover {
@@ -584,21 +574,22 @@
     }
 
     .btn-small {
-      padding: 11px 14px;
-      border-radius: 12px;
-      font-size: 0.94rem;
+      padding: 10px 13px;
+      border-radius: 8px;
+      font-size: 0.9rem;
     }
 
     .btn-danger {
-      background: var(--danger-bg);
-      color: var(--danger);
-      border: 1px solid rgba(179, 38, 30, 0.12);
+      background: var(--danger);
+      color: white;
+      border: 1px solid var(--danger);
       box-shadow: none;
     }
 
     .btn-ghost {
-      background: rgba(15, 27, 53, 0.05);
+      background: #f8fafc;
       color: var(--navy);
+      border: 1px solid var(--line);
       box-shadow: none;
     }
 
@@ -630,23 +621,21 @@
     .intro-panel {
       padding: 28px;
       border-radius: var(--radius-lg);
-      background:
-        linear-gradient(160deg, rgba(15, 27, 53, 0.98), rgba(35, 58, 106, 0.94)),
-        linear-gradient(120deg, rgba(255, 92, 53, 0.15), transparent);
-      color: white;
+      background: var(--card);
+      color: var(--text);
       min-height: 100%;
       box-shadow: var(--shadow);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--line);
     }
 
     .intro-panel h2 {
-      color: white;
-      font-size: clamp(2.1rem, 4vw, 3.2rem);
+      color: var(--navy);
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
       margin: 0 0 14px;
     }
 
     .intro-panel p {
-      color: rgba(255, 255, 255, 0.78);
+      color: var(--muted);
       line-height: 1.7;
       max-width: 36ch;
       margin: 0;
@@ -660,22 +649,22 @@
 
     .intro-item {
       padding: 15px 16px;
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      background: #f8fafc;
+      border: 1px solid var(--line);
     }
 
     .form-shell h2,
     .panel h2,
     .dashboard-title {
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: clamp(1.7rem, 3vw, 2.25rem);
       margin-bottom: 10px;
     }
 
     .form {
       display: grid;
       gap: 16px;
-      margin-top: 24px;
+      margin-top: 20px;
     }
 
     .field,
@@ -705,9 +694,9 @@
     select,
     textarea {
       width: 100%;
-      border: 1px solid rgba(15, 27, 53, 0.12);
-      border-radius: 14px;
-      padding: 14px 15px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px 14px;
       background: #fff;
       color: var(--text);
       transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
@@ -721,7 +710,7 @@
     input:focus,
     select:focus,
     textarea:focus {
-      border-color: rgba(255, 92, 53, 0.8);
+      border-color: rgba(37, 99, 235, 0.7);
       transform: translateY(-1px);
     }
 
@@ -732,12 +721,12 @@
     }
 
     .notice {
-      border-radius: 18px;
+      border-radius: 8px;
       padding: 16px 18px;
       background: var(--amber);
       color: var(--amber-text);
       border: 1px solid rgba(124, 90, 6, 0.12);
-      border-left: 5px solid #f4c046;
+      border-left: 4px solid #f59e0b;
       line-height: 1.65;
     }
 
@@ -751,7 +740,7 @@
       display: none;
       margin-top: 22px;
       padding: 28px;
-      border-radius: 20px;
+      border-radius: 10px;
       background: var(--success-bg);
       border: 1px solid rgba(23, 137, 91, 0.16);
       text-align: center;
@@ -769,7 +758,7 @@
       border-radius: 999px;
       display: grid;
       place-items: center;
-      background: rgba(23, 137, 91, 0.1);
+      background: rgba(22, 163, 74, 0.08);
     }
 
     .checkmark circle,
@@ -807,7 +796,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 18px;
-      margin-bottom: 22px;
+      margin-bottom: 24px;
       flex-wrap: wrap;
     }
 
@@ -840,7 +829,7 @@
       margin-bottom: 22px;
       position: relative;
       flex-wrap: wrap;
-      border-bottom: 1px solid rgba(15, 27, 53, 0.08);
+      border-bottom: 1px solid var(--line);
       padding-bottom: 10px;
     }
 
@@ -899,13 +888,13 @@
       display: flex;
       gap: 10px;
       color: var(--muted);
-      line-height: 1.55;
+      line-height: 1.6;
     }
 
     .meta-line strong {
       color: var(--navy);
       min-width: 98px;
-      font-size: 0.93rem;
+      font-size: 0.9rem;
     }
 
     .calendar-pulse {
@@ -934,9 +923,9 @@
 
     .empty-state {
       padding: 30px 24px;
-      border-radius: 18px;
-      background: rgba(15, 27, 53, 0.04);
-      border: 1px dashed rgba(15, 27, 53, 0.12);
+      border-radius: 8px;
+      background: #f8fafc;
+      border: 1px dashed var(--line);
       color: var(--muted);
       text-align: center;
     }
@@ -975,8 +964,8 @@
     .search-input {
       padding-right: 44px;
       height: 58px;
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.88);
+      border-radius: 8px;
+      background: white;
     }
 
     .search-icon {
@@ -994,9 +983,9 @@
       right: 0;
       top: calc(100% + 10px);
       background: white;
-      border-radius: 18px;
+      border-radius: 8px;
       border: 1px solid var(--line);
-      box-shadow: 0 22px 40px rgba(15, 27, 53, 0.12);
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
       overflow: hidden;
       display: none;
       z-index: 20;
@@ -1031,8 +1020,8 @@
     }
 
     .filter-chip {
-      border: 1px solid rgba(15, 27, 53, 0.08);
-      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid var(--line);
+      background: white;
       color: var(--muted);
       padding: 10px 14px;
       border-radius: 999px;
@@ -1042,13 +1031,13 @@
     }
 
     .filter-chip.active {
-      background: var(--navy);
+      background: var(--coral);
       color: white;
-      border-color: var(--navy);
+      border-color: var(--coral);
     }
 
     .club-card {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(244, 244, 240, 0.95));
+      background: var(--card);
     }
 
     .club-top {
@@ -1073,9 +1062,9 @@
 
     .event-preview {
       padding: 14px 15px;
-      border-radius: 16px;
-      background: rgba(15, 27, 53, 0.05);
-      border: 1px solid rgba(15, 27, 53, 0.06);
+      border-radius: 8px;
+      background: #f8fafc;
+      border: 1px solid var(--line);
       margin-bottom: 12px;
     }
 
@@ -1097,9 +1086,9 @@
 
     .mini-event {
       padding: 12px;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.74);
-      border: 1px solid rgba(15, 27, 53, 0.08);
+      border-radius: 8px;
+      background: #f8fafc;
+      border: 1px solid var(--line);
       color: var(--muted);
       line-height: 1.55;
     }
@@ -1128,7 +1117,7 @@
     }
 
     .insight-number {
-      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
       font-weight: 800;
       letter-spacing: -0.04em;
       color: var(--navy);
@@ -1152,9 +1141,9 @@
 
     .bar-track {
       height: 180px;
-      border-radius: 18px;
-      background: rgba(15, 27, 53, 0.06);
-      border: 1px solid rgba(15, 27, 53, 0.08);
+      border-radius: 8px;
+      background: #f8fafc;
+      border: 1px solid var(--line);
       display: flex;
       align-items: end;
       overflow: hidden;
@@ -1162,8 +1151,8 @@
 
     .bar-fill {
       width: 100%;
-      background: linear-gradient(180deg, var(--coral), var(--coral-dark));
-      border-radius: 18px 18px 0 0;
+      background: linear-gradient(180deg, #3b82f6, var(--coral));
+      border-radius: 8px 8px 0 0;
       height: 0;
       transition: height 240ms ease;
     }
@@ -1196,9 +1185,9 @@
     }
 
     .toast {
-      background: rgba(15, 27, 53, 0.96);
+      background: rgba(15, 23, 42, 0.96);
       color: white;
-      border-radius: 18px;
+      border-radius: 8px;
       padding: 14px 16px;
       box-shadow: 0 24px 50px rgba(15, 27, 53, 0.24);
       border: 1px solid rgba(255, 255, 255, 0.08);
@@ -1211,8 +1200,8 @@
     }
 
     .site-footer {
-      border-top: 1px solid rgba(15, 27, 53, 0.08);
-      background: rgba(255, 255, 255, 0.55);
+      border-top: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.9);
       backdrop-filter: blur(12px);
       margin-top: 30px;
     }
@@ -1245,34 +1234,34 @@
     }
 
     .category-social {
-      background: rgba(255, 92, 53, 0.12);
-      color: var(--coral-dark);
+      background: #dbeafe;
+      color: #1d4ed8;
     }
 
     .category-academic {
-      background: rgba(15, 27, 53, 0.1);
+      background: #e2e8f0;
       color: var(--navy);
     }
 
     .category-sports {
-      background: rgba(7, 121, 94, 0.14);
-      color: #0f7054;
+      background: #dcfce7;
+      color: #166534;
     }
 
     .category-arts {
-      background: rgba(138, 88, 255, 0.12);
-      color: #6442c7;
+      background: #ede9fe;
+      color: #5b21b6;
     }
 
     .category-volunteer {
-      background: rgba(247, 186, 47, 0.2);
-      color: #8a6400;
+      background: #ecfccb;
+      color: #3f6212;
     }
 
     .category-meeting,
     .category-other {
-      background: rgba(96, 112, 142, 0.14);
-      color: #50617d;
+      background: #f1f5f9;
+      color: #475569;
     }
 
     .animate-sequence {
@@ -1458,7 +1447,7 @@
           <a class="nav-link" href="#" data-route="signup">For Clubs</a>
           <a class="nav-link" href="#" data-route="discovery">Find Events</a>
           <a class="nav-link" href="#" data-route="signin">Sign In</a>
-          <a class="nav-link cta" href="#" data-route="signup">Sign Up</a>
+          <a class="nav-link cta" href="#" data-route="signup">Add Your Club</a>
         </nav>
       </div>
     </header>
@@ -1480,39 +1469,39 @@
                 <div id="landing-suggestions" class="suggestions" role="listbox"></div>
               </div>
             </div>
-            <div class="eyebrow animate-sequence delay-1">Verified campus clubs only</div>
-            <h1 class="hero-title animate-sequence delay-1">Find your people before you even arrive.</h1>
-            <p class="animate-sequence delay-2">Club Cal helps incoming freshmen and current students browse real clubs, discover upcoming events, and add them straight to their calendars without creating an account.</p>
+            <div class="eyebrow animate-sequence delay-1">Verified campus organizations</div>
+            <h1 class="hero-title animate-sequence delay-1">Campus events, in one reliable place.</h1>
+            <p class="animate-sequence delay-2">Club Cal helps students find active organizations, review upcoming events, and keep their calendars current without hunting across multiple platforms.</p>
             <div class="hero-actions animate-sequence delay-3">
-              <button class="btn btn-primary" data-route="discovery">Browse Active Clubs</button>
-              <button class="btn btn-secondary" data-route="signup">Register Your Club</button>
+              <button class="btn btn-primary" data-route="discovery">Browse Events</button>
+              <button class="btn btn-secondary" data-route="signup">Add your club</button>
             </div>
           </div>
 
           <aside class="hero-panel">
-            <div class="panel-chip">Discovery first</div>
-            <h2 class="hero-panel-title">From move-in week to finals, keep the calendar honest.</h2>
-            <p class="hero-panel-copy">Students can scout what’s happening at their school before they ever step on campus. Clubs get a trustworthy home for events and a better signal of real attendance intent.</p>
+            <div class="panel-chip">Campus-wide visibility</div>
+            <h2 class="hero-panel-title">From the first week to finals, keep the calendar current.</h2>
+            <p class="hero-panel-copy">Students get one dependable place to check what is happening. Clubs get a clear home for event publishing, updates, and calendar subscriptions.</p>
             <div class="hero-stats">
               <div class="stat-row">
                 <strong>1 tap</strong>
                 <div>
-                  <div class="stat-title">Add to calendar</div>
-                  <div class="stat-copy">Download an `.ics` file that lands in the tools students already use.</div>
+                  <div class="stat-title">Subscribe or save</div>
+                  <div class="stat-copy">Use calendar tools students already rely on every day.</div>
                 </div>
               </div>
               <div class="stat-row">
-                <strong>Freshman</strong>
+                <strong>Daily</strong>
                 <div>
-                  <div class="stat-title">Friendly browsing</div>
-                  <div class="stat-copy">Search your future school first, then figure out where you fit.</div>
+                  <div class="stat-title">Regular discovery</div>
+                  <div class="stat-copy">Search by school, filter by category, and check what is new.</div>
                 </div>
               </div>
               <div class="stat-row">
                 <strong>Proof</strong>
                 <div>
                   <div class="stat-title">Club insights</div>
-                  <div class="stat-copy">Presidents can show advisors actual calendar reach, not just likes.</div>
+                  <div class="stat-copy">Track calendar activity with numbers you can use in club planning and reporting.</div>
                 </div>
               </div>
             </div>
@@ -1520,33 +1509,33 @@
         </div>
 
         <section class="social-proof">
-          Built by a New York University student who was tired of missing events. Starting with New York University — coming to your school next.
+          Built to be a dependable event platform for student organizations and the students who follow them.
         </section>
 
         <section class="section">
           <div class="section-head">
             <div>
               <h2 class="section-title">How It Works</h2>
-              <p class="section-subtitle">Students get a cleaner campus browse experience. Clubs get one place to publish events and measure calendar reach.</p>
+              <p class="section-subtitle">Students get a dependable way to check what is happening. Clubs get one place to publish and maintain events.</p>
             </div>
           </div>
           <div class="flow-grid">
             <article class="card">
               <div class="flow-tag">For Clubs</div>
-              <h3 class="card-heading">Publish once, stay discoverable.</h3>
+              <h3 class="card-heading">Publish events in one place.</h3>
               <div class="event-meta">
                 <div class="meta-line"><strong>1</strong><span>Register with your school and wait for review.</span></div>
                 <div class="meta-line"><strong>2</strong><span>Create events with the essentials and optional details when you have them.</span></div>
-                <div class="meta-line"><strong>3</strong><span>Track calendar downloads to show advisors your club’s reach.</span></div>
+                <div class="meta-line"><strong>3</strong><span>Track calendar downloads and keep listings current for students.</span></div>
               </div>
             </article>
             <article class="card">
               <div class="flow-tag">For Students</div>
-              <h3 class="card-heading">Browse before you land on campus.</h3>
+              <h3 class="card-heading">Check what is happening across campus.</h3>
               <div class="event-meta">
-                <div class="meta-line"><strong>1</strong><span>Search your school and see active clubs immediately.</span></div>
-                <div class="meta-line"><strong>2</strong><span>Filter by category and check which clubs have posted recently.</span></div>
-                <div class="meta-line"><strong>3</strong><span>Download the next event to your calendar without making an account.</span></div>
+                <div class="meta-line"><strong>1</strong><span>Search your school and see active organizations immediately.</span></div>
+                <div class="meta-line"><strong>2</strong><span>Filter by category and review current event listings.</span></div>
+                <div class="meta-line"><strong>3</strong><span>Subscribe to club calendars or save individual events without an account.</span></div>
               </div>
             </article>
           </div>
@@ -1557,18 +1546,18 @@
         <div class="split-view">
           <aside class="intro-panel">
             <div class="flow-tag inverse">Club Registration</div>
-            <h2>Bring your club into the calendar students actually use.</h2>
-            <p>Create your Club Cal presence, go through manual verification, and start publishing events students can save in a click.</p>
+            <h2>Add your club to the campus event platform.</h2>
+            <p>Create your club profile, complete verification, and start publishing events students can reliably find and follow.</p>
             <div class="intro-list">
-              <div class="intro-item"><strong>Trusted publishing</strong><br>Every club is reviewed before activation.</div>
-              <div class="intro-item"><strong>Proof of reach</strong><br>Track how many students actually save your events.</div>
-              <div class="intro-item"><strong>Cleaner workflow</strong><br>One dashboard for event creation, updates, and insights.</div>
+              <div class="intro-item"><strong>Verified access</strong><br>Every club is reviewed before activation.</div>
+              <div class="intro-item"><strong>Calendar reach</strong><br>Track how many students save your events.</div>
+              <div class="intro-item"><strong>Central workflow</strong><br>Manage events and reporting in one dashboard.</div>
             </div>
           </aside>
 
           <div class="form-shell">
-            <h2>Register your club</h2>
-            <p class="muted">Create a real club account with Supabase Auth. Your club status starts as pending until reviewed.</p>
+            <h2>Add your club</h2>
+            <p class="muted">Create a club account. Your status will remain pending until verification is complete.</p>
             <div id="supabase-config-signup" class="notice config-notice" hidden>
               Add your Supabase URL and anon key in the script config block before using sign up or sign in.
             </div>
@@ -1610,7 +1599,7 @@
               <p id="signup-success-text" class="muted success-copy"></p>
               <a href="#" class="helper-link" data-route="landing">Back to home</a>
             </div>
-            <p class="helper-row"><a class="helper-link" href="#" data-route="signin">Already approved? Sign in →</a></p>
+            <p class="helper-row"><a class="helper-link" href="#" data-route="signin">Already approved? Sign in</a></p>
           </div>
         </div>
       </section>
@@ -1619,8 +1608,8 @@
         <div class="split-view">
           <aside class="intro-panel">
             <div class="flow-tag inverse">Club Access</div>
-            <h2>Sign in with your real club account.</h2>
-            <p>Club Cal now uses Supabase Auth for email and password sign-in. Pending clubs can sign in to manage drafts, while active clubs appear fully approved.</p>
+            <h2>Sign in to manage your club calendar.</h2>
+            <p>Access your dashboard to publish events, review analytics, and keep your club profile up to date.</p>
           </aside>
 
           <div class="form-shell">
@@ -1642,7 +1631,7 @@
               </div>
               <button class="btn btn-primary" type="submit">Sign In</button>
             </form>
-            <p class="helper-row"><a class="helper-link" href="#" data-route="signup">New club? Register here →</a></p>
+            <p class="helper-row"><a class="helper-link" href="#" data-route="signup">New club? Add it here</a></p>
           </div>
         </div>
       </section>
@@ -1652,7 +1641,7 @@
           <div class="dashboard-head">
             <div>
               <h2 class="dashboard-title" id="dashboard-title">Welcome back, Club</h2>
-              <p class="muted dashboard-subtitle">Create events, measure calendar reach, and keep your club profile current.</p>
+              <p class="muted dashboard-subtitle">Manage events, review calendar activity, and keep your club information current.</p>
             </div>
             <div id="account-badge" class="badge pending">Pending</div>
           </div>
@@ -1747,9 +1736,9 @@
                 </form>
 
                 <aside class="preview-card">
-                  <div class="flow-tag">Live Preview</div>
+                  <div class="flow-tag">Preview</div>
                   <h3 id="preview-title" class="preview-heading">Your event title</h3>
-                  <p id="preview-description" class="muted preview-copy">Details, dress code, and RSVP info will appear here as students browse your club.</p>
+                  <p id="preview-description" class="muted preview-copy">Event details will appear here as students browse your club profile.</p>
                   <div class="preview-meta">
                     <div class="meta-line"><strong>When</strong><span id="preview-datetime">Select a date and time.</span></div>
                     <div class="meta-line"><strong>Where</strong><span id="preview-location">Add an address and room/building.</span></div>
@@ -1781,7 +1770,7 @@
               </div>
               <div class="panel">
                 <h3 class="settings-heading">Downloads by Event</h3>
-                <p class="muted">Use this to show advisors which events actually made it onto student calendars.</p>
+                  <p class="muted">Review which events were most frequently added to student calendars.</p>
                 <div id="insights-chart" class="bar-chart"></div>
               </div>
             </section>
@@ -1790,7 +1779,7 @@
               <div class="settings-card">
                 <div class="panel">
                   <h3 class="settings-heading">Your Calendar Link</h3>
-                  <p class="muted">Share this link with your students. Anyone who subscribes will automatically see all your events and any updates you make.</p>
+                  <p class="muted">Share this link with students. Subscribers will automatically receive your published events and updates.</p>
                   <div class="form">
                     <div class="field-row">
                       <div class="field">
@@ -1812,7 +1801,7 @@
                 <div class="dashboard-head">
                   <div>
                     <h3 class="settings-heading">Club Settings</h3>
-                    <p class="muted">Update your club name and school without leaving the dashboard.</p>
+                    <p class="muted">Keep your club name and school details current.</p>
                   </div>
                   <button id="settings-edit-btn" class="btn btn-secondary btn-small" type="button">Edit</button>
                 </div>
@@ -1864,7 +1853,7 @@
             <div class="section-head compact">
               <div>
                 <h2>Find campus events</h2>
-                <p class="section-subtitle">Search your school, filter by category, and save the events that matter before the semester even starts.</p>
+                <p class="section-subtitle">Search your school, filter by category, and follow the organizations you care about.</p>
               </div>
             </div>
             <div class="search-shell">
@@ -1883,7 +1872,7 @@
             <div class="section-head compact">
               <div>
                 <h2 id="selected-school-title">School Events</h2>
-                <p class="section-subtitle">Browse active clubs, spot stale listings, and add the next event right to your calendar.</p>
+                <p class="section-subtitle">Browse active organizations, review current listings, and subscribe to club calendars.</p>
               </div>
             </div>
             <div id="filter-bar" class="filter-bar">
@@ -1904,7 +1893,7 @@
           <div class="dashboard-head">
             <div>
               <h2 class="dashboard-title">Club Review Admin</h2>
-              <p class="muted dashboard-subtitle">Pending clubs come directly from Supabase. Admin access lasts for this tab session only.</p>
+              <p class="muted dashboard-subtitle">Review pending club submissions. Access lasts for this browser tab session only.</p>
             </div>
           </div>
           <div class="panel">
@@ -1936,1317 +1925,6 @@
     <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="true"></div>
   </div>
 
-  <script>
-    (() => {
-      const ADMIN_PASSWORD = "clubcal-admin";
-
-      /*
-        Suggested SQL setup in Supabase:
-
-        create table if not exists clubs (
-          id bigint generated by default as identity primary key,
-          club_name text not null,
-          school text not null,
-          email text unique not null,
-          password_hash text not null default 'managed_by_supabase_auth',
-          status text not null default 'pending' check (status in ('pending', 'active')),
-          created_at timestamptz not null default now()
-        );
-
-        create table if not exists events (
-          id bigint generated by default as identity primary key,
-          club_id bigint not null references clubs(id) on delete cascade,
-          title text not null,
-          date date not null,
-          start_time time not null,
-          end_time time not null,
-          address text not null,
-          room text,
-          attire text,
-          category text not null,
-          description text,
-          rsvp_url text,
-          created_at timestamptz not null default now(),
-          download_count integer not null default 0
-        );
-      */
-
-      const STORAGE_KEYS = {
-        lastViewedSchool: "clubcal_last_viewed_school",
-        adminSession: "clubcal_admin_session"
-      };
-
-      const Dom = {
-        views: [...document.querySelectorAll("[data-view]")],
-        routeTriggers: [...document.querySelectorAll("[data-route]")],
-        tabButtons: [...document.querySelectorAll(".tab-btn")],
-        tabPanels: [...document.querySelectorAll(".tab-panel")],
-        navToggle: document.getElementById("nav-toggle"),
-        navLinks: document.getElementById("nav-links"),
-        toastRegion: document.getElementById("toast-region"),
-        landingSchoolInput: document.getElementById("landing-school-search"),
-        landingSuggestions: document.getElementById("landing-suggestions"),
-        schoolSearchInput: document.getElementById("school-search"),
-        suggestionsEl: document.getElementById("suggestions"),
-        signupSchoolInput: document.getElementById("signup-school"),
-        signupSchoolSuggestions: document.getElementById("signup-school-suggestions"),
-        discoveryResults: document.getElementById("discovery-results"),
-        selectedSchoolTitle: document.getElementById("selected-school-title"),
-        clubGrid: document.getElementById("club-grid"),
-        filterBar: document.getElementById("filter-bar"),
-        signupForm: document.getElementById("signup-form"),
-        signinForm: document.getElementById("signin-form"),
-        eventForm: document.getElementById("event-form"),
-        settingsForm: document.getElementById("settings-form"),
-        settingsReadView: document.getElementById("settings-read-view"),
-        settingsEditBtn: document.getElementById("settings-edit-btn"),
-        settingsCancelBtn: document.getElementById("settings-cancel-btn"),
-        signoutBtn: document.getElementById("signout-btn"),
-        signupSuccess: document.getElementById("signup-success"),
-        signupSuccessText: document.getElementById("signup-success-text"),
-        supabaseConfigSignup: document.getElementById("supabase-config-signup"),
-        supabaseConfigSignin: document.getElementById("supabase-config-signin"),
-        eventsList: document.getElementById("events-list"),
-        insightsChart: document.getElementById("insights-chart"),
-        insightsTotalDownloads: document.getElementById("insights-total-downloads"),
-        insightsEventCount: document.getElementById("insights-event-count"),
-        insightsTopDownloads: document.getElementById("insights-top-downloads"),
-        insightsTopEventLabel: document.getElementById("insights-top-event-label"),
-        adminList: document.getElementById("admin-list"),
-        dashboardTitle: document.getElementById("dashboard-title"),
-        accountBadge: document.getElementById("account-badge"),
-        settingsClubName: document.getElementById("settings-club-name"),
-        settingsSchool: document.getElementById("settings-school"),
-        settingsEmail: document.getElementById("settings-email"),
-        calendarFeedUrlInput: document.getElementById("calendar-feed-url"),
-        copyCalendarLinkBtn: document.getElementById("copy-calendar-link-btn"),
-        googleCalendarLinkBtn: document.getElementById("google-calendar-link-btn"),
-        appleCalendarLinkBtn: document.getElementById("apple-calendar-link-btn"),
-        settingsClubNameInput: document.getElementById("settings-club-name-input"),
-        settingsSchoolInput: document.getElementById("settings-school-input"),
-        settingsEmailInput: document.getElementById("settings-email-input"),
-        preview: {
-          title: document.getElementById("preview-title"),
-          description: document.getElementById("preview-description"),
-          datetime: document.getElementById("preview-datetime"),
-          location: document.getElementById("preview-location"),
-          attire: document.getElementById("preview-attire"),
-          category: document.getElementById("preview-category"),
-          rsvp: document.getElementById("preview-rsvp")
-        }
-      };
-
-      const Store = {
-        state: {
-          currentView: "landing",
-          currentTab: "events",
-          currentSchool: localStorage.getItem(STORAGE_KEYS.lastViewedSchool) || "",
-          currentFilter: "All",
-          currentClubRows: [],
-          currentDiscoveryData: [],
-          activeClub: null,
-          authSession: null,
-          dashboardEvents: [],
-          dashboardStatus: ""
-        },
-
-        setView(view) {
-          this.state.currentView = view;
-        },
-
-        setTab(tab) {
-          this.state.currentTab = tab;
-        },
-
-        setCurrentSchool(school) {
-          this.state.currentSchool = school;
-          localStorage.setItem(STORAGE_KEYS.lastViewedSchool, school);
-        },
-
-        setDiscoveryRows(rows) {
-          this.state.currentClubRows = rows;
-          this.state.currentDiscoveryData = this.state.currentFilter === "All"
-            ? rows
-            : rows.filter((club) => club.category === this.state.currentFilter);
-        },
-
-        setFilter(filter) {
-          this.state.currentFilter = filter;
-          this.setDiscoveryRows(this.state.currentClubRows);
-        },
-
-        setAuth(session, clubRow) {
-          this.state.authSession = session || null;
-          this.state.activeClub = clubRow ? Utils.mapClub(clubRow) : null;
-          this.state.dashboardStatus = clubRow?.status || "";
-        },
-
-        clearAuth() {
-          this.state.authSession = null;
-          this.state.activeClub = null;
-          this.state.dashboardEvents = [];
-          this.state.dashboardStatus = "";
-        },
-
-        setDashboardEvents(events) {
-          this.state.dashboardEvents = events;
-        }
-      };
-
-      const Utils = {
-        isSupabaseConfigured() {
-          return SUPABASE_URL.startsWith("https://") && !SUPABASE_URL.includes("YOUR_PROJECT") && SUPABASE_ANON_KEY && !SUPABASE_ANON_KEY.includes("YOUR_SUPABASE");
-        },
-
-        escapeICS(text) {
-          return String(text || "")
-            .replace(/\\/g, "\\\\")
-            .replace(/\n/g, "\\n")
-            .replace(/,/g, "\\,")
-            .replace(/;/g, "\\;");
-        },
-
-        escapeHTML(value) {
-          return String(value ?? "")
-            .replace(/&/g, "&amp;")
-            .replace(/</g, "&lt;")
-            .replace(/>/g, "&gt;")
-            .replace(/"/g, "&quot;")
-            .replace(/'/g, "&#39;");
-        },
-
-        getClubFeedUrl(clubId) {
-          return `https://clubcal.vercel.app/api/calendar/${clubId}`;
-        },
-
-        clearErrors(scope) {
-          scope.querySelectorAll("[data-error-for]").forEach((el) => {
-            el.textContent = "";
-          });
-        },
-
-        setError(scope, key, message) {
-          const el = scope.querySelector(`[data-error-for="${key}"]`);
-          if (el) el.textContent = message;
-        },
-
-        formatLocalDate(dateString) {
-          if (!dateString) return "TBD";
-          return new Intl.DateTimeFormat("en-US", {
-            weekday: "short",
-            month: "short",
-            day: "numeric",
-            year: "numeric"
-          }).format(new Date(dateString));
-        },
-
-        formatTimestamp(dateString) {
-          if (!dateString) return "TBD";
-          return new Intl.DateTimeFormat("en-US", {
-            month: "short",
-            day: "numeric",
-            year: "numeric",
-            hour: "numeric",
-            minute: "2-digit"
-          }).format(new Date(dateString));
-        },
-
-        formatTimeRange(dateString, startTime, endTime) {
-          if (!dateString || !startTime || !endTime) return "Select a date and time.";
-          const start = new Date(`${dateString}T${startTime}`);
-          const end = new Date(`${dateString}T${endTime}`);
-          const formatter = new Intl.DateTimeFormat("en-US", { hour: "numeric", minute: "2-digit" });
-          return `${this.formatLocalDate(dateString)} · ${formatter.format(start)} - ${formatter.format(end)}`;
-        },
-
-        toICSDate(dateString, timeString) {
-          const date = new Date(`${dateString}T${timeString}:00`);
-          const pad = (value) => String(value).padStart(2, "0");
-          return [
-            date.getUTCFullYear(),
-            pad(date.getUTCMonth() + 1),
-            pad(date.getUTCDate())
-          ].join("") + "T" + [
-            pad(date.getUTCHours()),
-            pad(date.getUTCMinutes()),
-            pad(date.getUTCSeconds())
-          ].join("") + "Z";
-        },
-
-        createICSContent(eventItem, clubName) {
-          const uid = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}@clubcal.app`;
-          const now = new Date();
-          const pad = (value) => String(value).padStart(2, "0");
-          const dtstamp = [
-            now.getUTCFullYear(),
-            pad(now.getUTCMonth() + 1),
-            pad(now.getUTCDate())
-          ].join("") + "T" + [
-            pad(now.getUTCHours()),
-            pad(now.getUTCMinutes()),
-            pad(now.getUTCSeconds())
-          ].join("") + "Z";
-          const descriptionLines = [
-            eventItem.description || "",
-            `Attire: ${eventItem.attire || "Not specified"}`,
-            `RSVP: ${eventItem.rsvp_url || eventItem.rsvp || "N/A"}`
-          ].filter(Boolean).join("\n");
-          const location = [eventItem.address, eventItem.room].filter(Boolean).join(", ");
-
-          return [
-            "BEGIN:VCALENDAR",
-            "VERSION:2.0",
-            "PRODID:-//ClubCal//ClubCal//EN",
-            "CALSCALE:GREGORIAN",
-            "METHOD:PUBLISH",
-            "BEGIN:VEVENT",
-            `UID:${uid}`,
-            `DTSTAMP:${dtstamp}`,
-            `DTSTART:${this.toICSDate(eventItem.date, eventItem.start_time || eventItem.startTime)}`,
-            `DTEND:${this.toICSDate(eventItem.date, eventItem.end_time || eventItem.endTime)}`,
-            `SUMMARY:${this.escapeICS(`${eventItem.title} – ${clubName}`)}`,
-            `DESCRIPTION:${this.escapeICS(descriptionLines)}`,
-            `LOCATION:${this.escapeICS(location)}`,
-            `X-ATTIRE:${this.escapeICS(eventItem.attire || "")}`,
-            `X-CLUB:${this.escapeICS(clubName)}`,
-            "END:VEVENT",
-            "END:VCALENDAR"
-          ].join("\r\n");
-        },
-
-        downloadICS(eventItem, clubName, triggerButton) {
-          const content = this.createICSContent(eventItem, clubName);
-          const blob = new Blob([content], { type: "text/calendar;charset=utf-8" });
-          const url = URL.createObjectURL(blob);
-          const anchor = document.createElement("a");
-          const slug = `${clubName}-${eventItem.title}`.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
-          anchor.href = url;
-          anchor.download = `${slug || "clubcal-event"}.ics`;
-          document.body.appendChild(anchor);
-          anchor.click();
-          anchor.remove();
-          URL.revokeObjectURL(url);
-
-          if (triggerButton) {
-            triggerButton.classList.remove("calendar-pulse");
-            void triggerButton.offsetWidth;
-            triggerButton.classList.add("calendar-pulse");
-          }
-        },
-
-        categoryClass(category) {
-          const slug = String(category || "other").toLowerCase();
-          return `category-${slug.replace(/[^a-z]+/g, "-")}`;
-        },
-
-        mapClub(row) {
-          return {
-            id: row.id,
-            clubName: row.club_name,
-            school: row.school,
-            email: row.email,
-            status: row.status,
-            createdAt: row.created_at
-          };
-        },
-
-        mapEvent(row) {
-          return {
-            id: row.id,
-            club_id: row.club_id,
-            title: row.title,
-            date: row.date,
-            start_time: row.start_time,
-            end_time: row.end_time,
-            address: row.address,
-            room: row.room || "",
-            attire: row.attire || "",
-            category: row.category,
-            description: row.description || "",
-            rsvp_url: row.rsvp_url || "",
-            created_at: row.created_at,
-            download_count: row.download_count || 0
-          };
-        }
-      };
-
-      const SupabaseApi = {
-        async fetchClubByEmail(email) {
-          const { data, error } = await supabase
-            .from("clubs")
-            .select("*")
-            .eq("email", email)
-            .limit(1)
-            .maybeSingle();
-
-          if (error) throw error;
-          return data || null;
-        },
-
-        async fetchPendingClubs() {
-          const { data, error } = await supabase
-            .from("clubs")
-            .select("*")
-            .eq("status", "pending")
-            .order("created_at", { ascending: true });
-
-          if (error) throw error;
-          return (data || []).map(Utils.mapClub);
-        },
-
-        async fetchEventsForClub(clubId, sortField = "created_at", ascending = false) {
-          const { data, error } = await supabase
-            .from("events")
-            .select("*")
-            .eq("club_id", clubId)
-            .order(sortField, { ascending });
-
-          if (error) throw error;
-          return (data || []).map(Utils.mapEvent);
-        },
-
-        async fetchDiscoverySchools() {
-          const { data, error } = await supabase
-            .from("clubs")
-            .select("school")
-            .eq("status", "active");
-
-          if (error) throw error;
-          return [...new Set((data || []).map((row) => row.school).filter(Boolean))];
-        },
-
-        async fetchActiveClubsBySchool(school) {
-          const { data, error } = await supabase
-            .from("clubs")
-            .select("*, events(*)")
-            .eq("school", school)
-            .eq("status", "active");
-
-          if (error) throw error;
-          return data || [];
-        },
-
-        async signUpClub(payload) {
-          const { data: authData, error: authError } = await supabase.auth.signUp({
-            email: payload.email,
-            password: payload.password
-          });
-
-          if (authError) {
-            Utils.setError(Dom.signupForm, "email", authError.message);
-            return null;
-          }
-
-          const userId = authData?.user?.id;
-          if (!userId) {
-            Utils.setError(Dom.signupForm, "email", "Signup failed. Please try again.");
-            return null;
-          }
-
-          const { error: insertError } = await supabase.from("clubs").insert({
-            user_id: userId,
-            club_name: payload.clubName,
-            school: payload.school,
-            email: payload.email,
-            status: "pending"
-          });
-
-          if (insertError) {
-            Utils.setError(Dom.signupForm, "email", insertError.message);
-            return null;
-          }
-
-          return authData;
-        },
-
-        async signInClub(email, password) {
-          const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-          if (error) {
-            throw new Error("Invalid email or password.");
-          }
-
-          const clubRow = await this.fetchClubByEmail(email);
-          if (!clubRow) {
-            throw new Error("No approved club found for this email.");
-          }
-
-          Store.setAuth(data?.session || null, clubRow);
-          return Store.state.activeClub;
-        },
-
-        async restoreSession() {
-          const { data, error } = await supabase.auth.getSession();
-          if (error || !data?.session?.user?.email) return;
-
-          const clubRow = await this.fetchClubByEmail(data.session.user.email).catch(() => null);
-          if (!clubRow) return;
-          Store.setAuth(data.session, clubRow);
-        },
-
-        async signOutClub() {
-          await supabase.auth.signOut();
-          Store.clearAuth();
-        },
-
-        async createEvent(payload) {
-          const { data, error } = await supabase
-            .from("events")
-            .insert({
-              club_id: Store.state.activeClub.id,
-              title: payload.title,
-              date: payload.date,
-              start_time: payload.startTime,
-              end_time: payload.endTime,
-              address: payload.address,
-              room: payload.room || null,
-              attire: payload.attire || null,
-              category: payload.category,
-              description: payload.description || null,
-              rsvp_url: payload.rsvp || null,
-              download_count: 0
-            })
-            .select()
-            .single();
-
-          if (error) throw error;
-          return Utils.mapEvent(data);
-        },
-
-        async deleteEvent(eventId) {
-          const { error } = await supabase
-            .from("events")
-            .delete()
-            .eq("id", eventId);
-
-          if (error) throw error;
-        },
-
-        async updateEventDownloadCount(eventItem) {
-          const nextCount = (eventItem.download_count || 0) + 1;
-          const { error } = await supabase
-            .from("events")
-            .update({ download_count: nextCount })
-            .eq("id", eventItem.id);
-
-          if (error) throw error;
-          eventItem.download_count = nextCount;
-          return nextCount;
-        },
-
-        async updateClubProfile(clubId, updates) {
-          const { data, error } = await supabase
-            .from("clubs")
-            .update(updates)
-            .eq("id", clubId)
-            .select()
-            .single();
-
-          if (error) throw error;
-          return Utils.mapClub(data);
-        },
-
-        async approveClub(clubId) {
-          const { error } = await supabase
-            .from("clubs")
-            .update({ status: "active" })
-            .eq("id", clubId);
-
-          if (error) throw error;
-        },
-
-        async rejectClub(clubId) {
-          const { error } = await supabase
-            .from("clubs")
-            .delete()
-            .eq("id", clubId);
-
-          if (error) throw error;
-        }
-      };
-
-      const UI = {
-        showToast(title, message) {
-          const toast = document.createElement("div");
-          toast.className = "toast";
-          toast.innerHTML = `<strong>${Utils.escapeHTML(title)}</strong><span>${Utils.escapeHTML(message)}</span>`;
-          Dom.toastRegion.appendChild(toast);
-          setTimeout(() => toast.remove(), 3600);
-        },
-
-        closeMobileNav() {
-          Dom.navLinks.classList.remove("open");
-          Dom.navToggle.setAttribute("aria-expanded", "false");
-        },
-
-        ensureConfigured() {
-          if (Utils.isSupabaseConfigured()) return true;
-          Dom.supabaseConfigSignup.hidden = false;
-          Dom.supabaseConfigSignin.hidden = false;
-          this.showToast("Supabase not configured", "Add your Supabase URL and anon key in the script config block first.");
-          return false;
-        },
-
-        setSettingsMode(editing) {
-          Dom.settingsReadView.hidden = editing;
-          Dom.settingsForm.hidden = !editing;
-          Dom.settingsEditBtn.hidden = editing;
-        },
-
-        updatePreview() {
-          const formData = new FormData(Dom.eventForm);
-          const title = formData.get("title") || "Your event title";
-          const description = formData.get("description") || "Add an optional description if you want students to know more before they save it.";
-          const date = formData.get("date");
-          const startTime = formData.get("startTime");
-          const endTime = formData.get("endTime");
-          const address = formData.get("address");
-          const room = formData.get("room");
-          const attire = formData.get("attire");
-          const category = formData.get("category");
-          const rsvp = formData.get("rsvp");
-
-          Dom.preview.title.textContent = title;
-          Dom.preview.description.textContent = description;
-          Dom.preview.datetime.textContent = Utils.formatTimeRange(date, startTime, endTime);
-          Dom.preview.location.textContent = address || room ? [address, room].filter(Boolean).join(", ") : "Add an address and optional room/building.";
-          Dom.preview.attire.textContent = attire || "Optional attire note.";
-          Dom.preview.category.textContent = category || "Pick a category for discovery.";
-          Dom.preview.rsvp.textContent = rsvp || "Optional RSVP link appears here.";
-        },
-
-        async hydrateDashboard() {
-          const { activeClub, dashboardStatus } = Store.state;
-          if (!activeClub) return;
-
-          Dom.dashboardTitle.textContent = `Welcome back, ${activeClub.clubName}`;
-          Dom.settingsClubName.textContent = activeClub.clubName;
-          Dom.settingsSchool.textContent = activeClub.school || "-";
-          Dom.settingsEmail.textContent = activeClub.email;
-          Dom.calendarFeedUrlInput.value = Utils.getClubFeedUrl(activeClub.id);
-          Dom.settingsClubNameInput.value = activeClub.clubName;
-          Dom.settingsSchoolInput.value = activeClub.school || "";
-          Dom.settingsEmailInput.value = activeClub.email;
-          Dom.accountBadge.className = `badge ${dashboardStatus === "active" ? "active" : "pending"}`;
-          Dom.accountBadge.textContent = dashboardStatus === "active" ? "Active" : "Pending";
-
-          await this.renderEvents();
-          this.renderInsights();
-        },
-
-        async renderEvents() {
-          if (!Store.state.activeClub?.id) {
-            Dom.eventsList.innerHTML = `<div class="empty-state">No events yet. Create your first event in the <strong>Create Event</strong> tab and it will appear here.</div>`;
-            return;
-          }
-
-          Dom.eventsList.innerHTML = `<div class="loading-state">Loading your events...</div>`;
-
-          try {
-            const events = await SupabaseApi.fetchEventsForClub(Store.state.activeClub.id, "created_at", false);
-            Store.setDashboardEvents(events);
-          } catch (error) {
-            Store.setDashboardEvents([]);
-            Dom.eventsList.innerHTML = `<div class="empty-state">${Utils.escapeHTML(error.message)}</div>`;
-            return;
-          }
-
-          if (!Store.state.dashboardEvents.length) {
-            Dom.eventsList.innerHTML = `<div class="empty-state">No events yet. Create your first event in the <strong>Create Event</strong> tab and it will appear here.</div>`;
-            return;
-          }
-
-          Dom.eventsList.innerHTML = Store.state.dashboardEvents.map((eventItem) => `
-            <article class="event-card">
-              <div class="club-top">
-                <div>
-                  <h3 class="event-heading">${Utils.escapeHTML(eventItem.title)}</h3>
-                  <div class="badge ${Utils.categoryClass(eventItem.category)}">${Utils.escapeHTML(eventItem.category)}</div>
-                </div>
-              </div>
-              <div class="event-meta">
-                <div class="meta-line"><strong>When</strong><span>${Utils.escapeHTML(Utils.formatTimeRange(eventItem.date, eventItem.start_time, eventItem.end_time))}</span></div>
-                <div class="meta-line"><strong>Where</strong><span>${Utils.escapeHTML([eventItem.address, eventItem.room].filter(Boolean).join(", "))}</span></div>
-                <div class="meta-line"><strong>Downloads</strong><span>${Utils.escapeHTML(String(eventItem.download_count || 0))}</span></div>
-              </div>
-              <div class="event-actions">
-                <button class="btn btn-secondary btn-small js-download-event" data-id="${eventItem.id}">Download .ics</button>
-                <button class="btn btn-danger btn-small js-delete-event" data-id="${eventItem.id}">Delete</button>
-              </div>
-            </article>
-          `).join("");
-
-          Dom.eventsList.querySelectorAll(".js-download-event").forEach((button) => {
-            button.addEventListener("click", async () => {
-              const eventItem = Store.state.dashboardEvents.find((item) => String(item.id) === button.dataset.id);
-              if (!eventItem) return;
-
-              Utils.downloadICS(eventItem, Store.state.activeClub.clubName, button);
-              try {
-                await SupabaseApi.updateEventDownloadCount(eventItem);
-                await this.renderEvents();
-                this.renderInsights();
-              } catch (error) {
-                this.showToast("Download tracked locally", "The calendar file downloaded, but analytics could not update.");
-              }
-              this.showToast("Calendar file downloaded", `${eventItem.title} is ready for your calendar.`);
-            });
-          });
-
-          Dom.eventsList.querySelectorAll(".js-delete-event").forEach((button) => {
-            button.addEventListener("click", async () => {
-              try {
-                await SupabaseApi.deleteEvent(button.dataset.id);
-                await this.renderEvents();
-                this.renderInsights();
-                this.showToast("Event deleted", "The event was removed from your dashboard.");
-              } catch (error) {
-                this.showToast("Delete failed", error.message);
-              }
-            });
-          });
-        },
-
-        renderInsights() {
-          const events = Store.state.dashboardEvents;
-          const totalDownloads = events.reduce((sum, eventItem) => sum + (eventItem.download_count || 0), 0);
-          const topEvent = [...events].sort((a, b) => (b.download_count || 0) - (a.download_count || 0))[0];
-
-          Dom.insightsTotalDownloads.textContent = String(totalDownloads);
-          Dom.insightsEventCount.textContent = String(events.length);
-          Dom.insightsTopDownloads.textContent = String(topEvent?.download_count || 0);
-          Dom.insightsTopEventLabel.textContent = topEvent ? topEvent.title : "No event downloads yet.";
-
-          if (!events.length) {
-            Dom.insightsChart.innerHTML = `<div class="empty-state">Create your first event to start tracking downloads.</div>`;
-            return;
-          }
-
-          const maxDownloads = Math.max(...events.map((eventItem) => eventItem.download_count || 0), 1);
-          Dom.insightsChart.innerHTML = events.map((eventItem) => `
-            <div class="bar-group">
-              <div class="bar-track">
-                <div class="bar-fill" data-height="${Math.max(8, Math.round(((eventItem.download_count || 0) / maxDownloads) * 100))}"></div>
-              </div>
-              <div class="bar-value">${Utils.escapeHTML(String(eventItem.download_count || 0))}</div>
-              <div class="bar-label">${Utils.escapeHTML(eventItem.title)}</div>
-            </div>
-          `).join("");
-
-          Dom.insightsChart.querySelectorAll(".bar-fill").forEach((bar) => {
-            requestAnimationFrame(() => {
-              bar.style.height = `${bar.dataset.height}%`;
-            });
-          });
-        },
-
-        async renderAdminList() {
-          if (!this.ensureConfigured()) {
-            Dom.adminList.innerHTML = `<div class="empty-state">Supabase must be configured before the admin panel can load pending clubs.</div>`;
-            return;
-          }
-
-          Dom.adminList.innerHTML = `<div class="loading-state">Loading pending clubs...</div>`;
-
-          try {
-            const pendingClubs = await SupabaseApi.fetchPendingClubs();
-            if (!pendingClubs.length) {
-              Dom.adminList.innerHTML = `<div class="empty-state">No pending club applications right now.</div>`;
-              return;
-            }
-
-            Dom.adminList.innerHTML = pendingClubs.map((club) => `
-              <article class="event-card">
-                <div class="club-top">
-                  <div>
-                    <h3 class="event-heading">${Utils.escapeHTML(club.clubName)}</h3>
-                    <div class="badge pending">Pending Review</div>
-                  </div>
-                </div>
-                <div class="event-meta">
-                  <div class="meta-line"><strong>School</strong><span>${Utils.escapeHTML(club.school)}</span></div>
-                  <div class="meta-line"><strong>Email</strong><span>${Utils.escapeHTML(club.email)}</span></div>
-                  <div class="meta-line"><strong>Submitted</strong><span>${Utils.escapeHTML(Utils.formatTimestamp(club.createdAt))}</span></div>
-                </div>
-                <div class="event-actions">
-                  <button class="btn btn-primary btn-small js-approve-club" data-id="${club.id}">Approve</button>
-                  <button class="btn btn-danger btn-small js-reject-club" data-id="${club.id}">Reject</button>
-                </div>
-              </article>
-            `).join("");
-
-            Dom.adminList.querySelectorAll(".js-approve-club").forEach((button) => {
-              button.addEventListener("click", async () => {
-                try {
-                  await SupabaseApi.approveClub(button.dataset.id);
-                  this.showToast("Club approved", "The club is now active in discovery.");
-                  this.renderAdminList();
-                } catch (error) {
-                  this.showToast("Approve failed", error.message);
-                }
-              });
-            });
-
-            Dom.adminList.querySelectorAll(".js-reject-club").forEach((button) => {
-              button.addEventListener("click", async () => {
-                try {
-                  await SupabaseApi.rejectClub(button.dataset.id);
-                  this.showToast("Club rejected", "The pending application was removed.");
-                  this.renderAdminList();
-                } catch (error) {
-                  this.showToast("Reject failed", error.message);
-                }
-              });
-            });
-          } catch (error) {
-            Dom.adminList.innerHTML = `<div class="empty-state">${Utils.escapeHTML(error.message)}</div>`;
-          }
-        },
-
-        async loadSchoolDiscovery(school, navigate = false) {
-          if (!this.ensureConfigured()) return;
-
-          Store.setCurrentSchool(school);
-          Dom.selectedSchoolTitle.textContent = `${school} Clubs`;
-          Dom.schoolSearchInput.value = school;
-          Dom.landingSchoolInput.value = school;
-          Dom.discoveryResults.hidden = false;
-
-          await this.renderClubGrid();
-          if (navigate) this.showView("discovery");
-        },
-
-        async renderClubGrid() {
-          Dom.clubGrid.innerHTML = `
-            <div class="empty-state" style="grid-column:1/-1; color:var(--muted);">Loading clubs...</div>
-          `;
-
-          let clubs = [];
-          try {
-            clubs = await SupabaseApi.fetchActiveClubsBySchool(Store.state.currentSchool);
-          } catch (error) {
-            Dom.clubGrid.innerHTML = `<div class="empty-state">${Utils.escapeHTML(error.message)}</div>`;
-            return;
-          }
-
-          const normalized = clubs.map((club) => {
-            const clubEvents = (club.events || [])
-              .map(Utils.mapEvent)
-              .sort((a, b) => new Date(`${a.date}T${a.start_time}`) - new Date(`${b.date}T${b.start_time}`));
-            const upcomingEvents = clubEvents.filter((eventItem) => new Date(`${eventItem.date}T${eventItem.start_time}`) >= new Date());
-            const nextEvent = upcomingEvents[0] || null;
-
-            return {
-              ...Utils.mapClub(club),
-              events: clubEvents,
-              nextEvent,
-              category: nextEvent?.category || clubEvents[0]?.category || "Other"
-            };
-          });
-
-          Store.setDiscoveryRows(normalized);
-
-          if (!Store.state.currentDiscoveryData.length) {
-            Dom.clubGrid.innerHTML = `
-              <div class="empty-state" style="grid-column:1/-1;">
-                <p style="font-size:1.1rem; font-weight:700; color:var(--navy); margin:0 0 8px;">No clubs listed yet at ${Utils.escapeHTML(Store.state.currentSchool)}.</p>
-                <p style="margin:0 0 18px;">Are you a club officer here? Get your club in front of students who are already looking.</p>
-                <button class="btn btn-primary btn-small" data-route="signup">Register Your Club →</button>
-              </div>
-            `;
-
-            Dom.clubGrid.querySelectorAll("[data-route]").forEach((trigger) => {
-              trigger.addEventListener("click", (event) => {
-                event.preventDefault();
-                this.showView(trigger.dataset.route);
-              });
-            });
-            return;
-          }
-
-          Dom.clubGrid.innerHTML = Store.state.currentDiscoveryData.map((club) => `
-            <article class="club-card" data-club-id="${club.id}">
-              <div class="club-top">
-                <div>
-                  <h3 class="event-heading">${Utils.escapeHTML(club.clubName)}</h3>
-                  <div class="badge ${Utils.categoryClass(club.category)}">${Utils.escapeHTML(club.category)}</div>
-                </div>
-                <div class="club-count">${Utils.escapeHTML(String(club.events.length))} events</div>
-              </div>
-              <p>Browse upcoming events and add the next one straight to your calendar.</p>
-              ${club.nextEvent ? `
-                <div class="event-preview">
-                  <div class="event-preview-title">${Utils.escapeHTML(club.nextEvent.title)}</div>
-                  <div class="event-preview-copy">${Utils.escapeHTML(Utils.formatTimeRange(club.nextEvent.date, club.nextEvent.start_time, club.nextEvent.end_time))}</div>
-                </div>
-              ` : `
-                <div class="stale-indicator">No upcoming events yet</div>
-              `}
-              <div class="club-actions">
-                <button class="btn btn-primary btn-small js-google-subscribe" data-id="${club.id}">Subscribe on Google Calendar</button>
-                <button class="btn btn-ghost btn-small js-apple-subscribe" data-id="${club.id}">Subscribe on Apple Calendar</button>
-                <button class="btn btn-ghost btn-small js-toggle-events" data-expanded="false" ${club.events.length ? "" : "disabled"}>View All Events</button>
-              </div>
-              <div class="club-events-expanded" hidden>
-                ${club.events.length ? club.events.map((eventItem) => `
-                  <div class="mini-event">
-                    <strong class="mini-event-title">${Utils.escapeHTML(eventItem.title)}</strong>
-                    <div>${Utils.escapeHTML(Utils.formatTimeRange(eventItem.date, eventItem.start_time, eventItem.end_time))}</div>
-                    <div>${Utils.escapeHTML([eventItem.address, eventItem.room].filter(Boolean).join(", "))}</div>
-                  </div>
-                `).join("") : `<div class="mini-event">No upcoming events yet</div>`}
-              </div>
-            </article>
-          `).join("");
-
-          Dom.clubGrid.querySelectorAll(".js-google-subscribe").forEach((button) => {
-            button.addEventListener("click", () => {
-              const feedUrl = Utils.getClubFeedUrl(button.dataset.id);
-              window.open(`https://calendar.google.com/calendar/r?cid=${encodeURIComponent(feedUrl)}`, "_blank", "noopener");
-            });
-          });
-
-          Dom.clubGrid.querySelectorAll(".js-apple-subscribe").forEach((button) => {
-            button.addEventListener("click", () => {
-              window.location.href = `webcal://clubcal.vercel.app/api/calendar/${button.dataset.id}`;
-            });
-          });
-
-          Dom.clubGrid.querySelectorAll(".js-toggle-events").forEach((button) => {
-            button.addEventListener("click", () => {
-              const expanded = button.dataset.expanded === "true";
-              const target = button.closest(".club-card").querySelector(".club-events-expanded");
-              button.dataset.expanded = String(!expanded);
-              button.textContent = expanded ? "View All Events" : "Hide Events";
-              target.hidden = expanded;
-            });
-          });
-        },
-
-        async renderSchoolSuggestions(query, input, container, onSelect) {
-          const value = query.trim().toLowerCase();
-          if (!value) {
-            this.hideSuggestions(input, container);
-            return;
-          }
-
-          let matches = [];
-          try {
-            const schools = await SupabaseApi.fetchDiscoverySchools();
-            matches = schools.filter((school) => school.toLowerCase().includes(value)).slice(0, 10);
-          } catch (error) {
-            this.hideSuggestions(input, container);
-            return;
-          }
-
-          if (!matches.length) {
-            this.hideSuggestions(input, container);
-            return;
-          }
-
-          container.innerHTML = matches.map((school) => `
-            <button class="suggestion" type="button" data-school="${Utils.escapeHTML(school)}">${Utils.escapeHTML(school)}</button>
-          `).join("");
-          container.classList.add("visible");
-          input.setAttribute("aria-expanded", "true");
-          container.querySelectorAll(".suggestion").forEach((button) => {
-            button.addEventListener("click", () => onSelect(button.dataset.school));
-          });
-        },
-
-        hideSuggestions(input, container) {
-          container.classList.remove("visible");
-          container.innerHTML = "";
-          input.setAttribute("aria-expanded", "false");
-        },
-
-        selectSignupSchool(name) {
-          Dom.signupSchoolInput.value = name;
-          this.hideSuggestions(Dom.signupSchoolInput, Dom.signupSchoolSuggestions);
-        },
-
-        selectLandingSchool(name) {
-          Dom.landingSchoolInput.value = name;
-          this.hideSuggestions(Dom.landingSchoolInput, Dom.landingSuggestions);
-          this.loadSchoolDiscovery(name, true);
-        },
-
-        selectDiscoverySchool(name) {
-          Dom.schoolSearchInput.value = name;
-          this.hideSuggestions(Dom.schoolSearchInput, Dom.suggestionsEl);
-          this.loadSchoolDiscovery(name, false);
-        },
-
-        ensureAdminAccess() {
-          if (sessionStorage.getItem(STORAGE_KEYS.adminSession) === "true") return true;
-
-          const entry = window.prompt("Enter the admin password to access Club Cal admin:");
-          if (entry === ADMIN_PASSWORD) {
-            sessionStorage.setItem(STORAGE_KEYS.adminSession, "true");
-            return true;
-          }
-
-          if (window.location.hash === "#admin") {
-            history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
-          }
-          this.showToast("Admin access denied", "The admin password was incorrect.");
-          this.showView("landing");
-          return false;
-        },
-
-        showView(name) {
-          if (name === "admin" && !this.ensureAdminAccess()) return;
-
-          Store.setView(name);
-          Dom.views.forEach((view) => {
-            const isTarget = view.dataset.view === name;
-            view.classList.remove("visible");
-            if (isTarget) {
-              view.classList.add("active");
-              requestAnimationFrame(() => view.classList.add("visible"));
-            } else {
-              view.classList.remove("active");
-            }
-          });
-
-          if (name === "dashboard") {
-            this.hydrateDashboard();
-          }
-          if (name === "discovery") {
-            Dom.schoolSearchInput.focus();
-            if (Store.state.currentSchool && !Store.state.currentDiscoveryData.length && Utils.isSupabaseConfigured()) {
-              this.loadSchoolDiscovery(Store.state.currentSchool, false);
-            }
-          }
-          if (name === "admin") {
-            this.renderAdminList();
-          }
-
-          this.closeMobileNav();
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        },
-
-        setTab(name) {
-          Store.setTab(name);
-          Dom.tabButtons.forEach((button) => button.classList.toggle("active", button.dataset.tab === name));
-          Dom.tabPanels.forEach((panel) => panel.classList.toggle("active", panel.dataset.tabPanel === name));
-          if (name === "insights") {
-            this.renderInsights();
-          }
-        },
-
-        syncHashRoute() {
-          if (window.location.hash === "#admin") {
-            this.showView("admin");
-          } else if (Store.state.currentView === "admin") {
-            this.showView("landing");
-          }
-        }
-      };
-
-      const Actions = {
-        async handleSignupSubmit(event) {
-          event.preventDefault();
-          Utils.clearErrors(Dom.signupForm);
-          if (!UI.ensureConfigured()) return;
-
-          const formData = new FormData(Dom.signupForm);
-          const payload = {
-            clubName: String(formData.get("clubName") || "").trim(),
-            school: String(formData.get("school") || "").trim(),
-            email: String(formData.get("email") || "").trim(),
-            password: String(formData.get("password") || "")
-          };
-
-          const authData = await SupabaseApi.signUpClub(payload);
-          if (!authData) return;
-
-          Dom.signupSuccessText.textContent = `Thanks! Your application for ${payload.clubName} has been submitted for review.`;
-          Dom.signupSuccess.classList.add("visible");
-          Dom.signupForm.classList.add("hidden");
-        },
-
-        async handleSigninSubmit(event) {
-          event.preventDefault();
-          Utils.clearErrors(Dom.signinForm);
-          if (!UI.ensureConfigured()) return;
-
-          const formData = new FormData(Dom.signinForm);
-          const email = String(formData.get("email") || "").trim();
-          const password = String(formData.get("password") || "");
-          let valid = true;
-
-          if (!email) {
-            Utils.setError(Dom.signinForm, "signinEmail", "Please enter your email address.");
-            valid = false;
-          }
-          if (!password) {
-            Utils.setError(Dom.signinForm, "signinPassword", "Please enter your password.");
-            valid = false;
-          }
-          if (!valid) return;
-
-          try {
-            await SupabaseApi.signInClub(email, password);
-            await UI.hydrateDashboard();
-            UI.setSettingsMode(false);
-            UI.setTab("events");
-            UI.showView("dashboard");
-          } catch (error) {
-            const message = error.message === "Invalid email or password." ? error.message : "No approved club found for this email.";
-            Utils.setError(Dom.signinForm, "signinPassword", message);
-          }
-        },
-
-        async handleEventSubmit(event) {
-          event.preventDefault();
-          Utils.clearErrors(Dom.eventForm);
-          if (!UI.ensureConfigured()) return;
-          if (!Store.state.activeClub) {
-            UI.showToast("Sign in required", "Please sign in with a club account before creating events.");
-            return;
-          }
-
-          const formData = new FormData(Dom.eventForm);
-          const payload = Object.fromEntries(formData.entries());
-          const requiredFields = [
-            ["title", "Please enter an event title."],
-            ["date", "Please select a date."],
-            ["startTime", "Please choose a start time."],
-            ["endTime", "Please choose an end time."],
-            ["address", "Please add a location or address."],
-            ["category", "Please choose a category."]
-          ];
-
-          let valid = true;
-          requiredFields.forEach(([field, message]) => {
-            if (!String(payload[field] || "").trim()) {
-              Utils.setError(Dom.eventForm, field, message);
-              valid = false;
-            }
-          });
-
-          if (payload.rsvp && !/^https?:\/\/.+/i.test(payload.rsvp)) {
-            Utils.setError(Dom.eventForm, "rsvp", "Please enter a valid URL starting with http:// or https://");
-            valid = false;
-          }
-
-          if (payload.date && payload.startTime && payload.endTime) {
-            const start = new Date(`${payload.date}T${payload.startTime}`);
-            const end = new Date(`${payload.date}T${payload.endTime}`);
-            if (end <= start) {
-              Utils.setError(Dom.eventForm, "endTime", "End time must be after the start time.");
-              valid = false;
-            }
-          }
-
-          if (!valid) return;
-
-          try {
-            const newEvent = await SupabaseApi.createEvent(payload);
-            UI.showToast("Event published", `${newEvent.title} was saved and added to your live calendar feed.`);
-            Dom.eventForm.reset();
-            UI.updatePreview();
-            await UI.renderEvents();
-            UI.renderInsights();
-            UI.setTab("events");
-          } catch (error) {
-            UI.showToast("Event creation failed", error.message);
-          }
-        },
-
-        startSettingsEdit() {
-          if (!Store.state.activeClub) return;
-          Dom.settingsClubNameInput.value = Store.state.activeClub.clubName;
-          Dom.settingsSchoolInput.value = Store.state.activeClub.school || "";
-          Dom.settingsEmailInput.value = Store.state.activeClub.email;
-          UI.setSettingsMode(true);
-        },
-
-        cancelSettingsEdit() {
-          UI.setSettingsMode(false);
-          Utils.clearErrors(Dom.settingsForm);
-        },
-
-        async handleSettingsSubmit(event) {
-          event.preventDefault();
-          Utils.clearErrors(Dom.settingsForm);
-          if (!Store.state.activeClub || !UI.ensureConfigured()) return;
-
-          const clubName = Dom.settingsClubNameInput.value.trim();
-          const school = Dom.settingsSchoolInput.value.trim();
-          let valid = true;
-
-          if (!clubName) {
-            Utils.setError(Dom.settingsForm, "settingsClubName", "Club name is required.");
-            valid = false;
-          }
-          if (!school) {
-            Utils.setError(Dom.settingsForm, "settingsSchool", "School is required.");
-            valid = false;
-          }
-          if (!valid) return;
-
-          try {
-            Store.state.activeClub = await SupabaseApi.updateClubProfile(Store.state.activeClub.id, {
-              club_name: clubName,
-              school
-            });
-            UI.setSettingsMode(false);
-            await UI.hydrateDashboard();
-            UI.showToast("Settings updated", "Your club profile was saved.");
-          } catch (error) {
-            UI.showToast("Update failed", error.message);
-          }
-        },
-
-        async copyCalendarLink() {
-          if (!Dom.calendarFeedUrlInput.value) return;
-          try {
-            await navigator.clipboard.writeText(Dom.calendarFeedUrlInput.value);
-            const originalLabel = Dom.copyCalendarLinkBtn.textContent;
-            Dom.copyCalendarLinkBtn.textContent = "Copied ✓";
-            setTimeout(() => {
-              Dom.copyCalendarLinkBtn.textContent = originalLabel;
-            }, 2000);
-          } catch (error) {
-            UI.showToast("Copy failed", "We couldn't copy the calendar link to your clipboard.");
-          }
-        },
-
-        openGoogleFeed() {
-          if (!Store.state.activeClub?.id) return;
-          const feedUrl = Utils.getClubFeedUrl(Store.state.activeClub.id);
-          window.open(`https://calendar.google.com/calendar/r?cid=${encodeURIComponent(feedUrl)}`, "_blank", "noopener");
-        },
-
-        openAppleFeed() {
-          if (!Store.state.activeClub?.id) return;
-          window.location.href = `webcal://clubcal.vercel.app/api/calendar/${Store.state.activeClub.id}`;
-        },
-
-        async handleSignOut() {
-          try {
-            await SupabaseApi.signOutClub();
-          } catch (error) {
-            Store.clearAuth();
-          }
-          UI.showToast("Signed out", "You’ve returned to the Club Cal home page.");
-          UI.showView("landing");
-        }
-      };
-
-      const App = {
-        bindRouteTriggers() {
-          Dom.routeTriggers.forEach((trigger) => {
-            trigger.addEventListener("click", (event) => {
-              event.preventDefault();
-              if (trigger.dataset.route) {
-                UI.showView(trigger.dataset.route);
-              }
-            });
-          });
-        },
-
-        bindTabs() {
-          Dom.tabButtons.forEach((button) => {
-            button.addEventListener("click", () => UI.setTab(button.dataset.tab));
-          });
-        },
-
-        bindNavigation() {
-          Dom.navToggle.addEventListener("click", () => {
-            const next = Dom.navToggle.getAttribute("aria-expanded") !== "true";
-            Dom.navToggle.setAttribute("aria-expanded", String(next));
-            Dom.navLinks.classList.toggle("open", next);
-          });
-        },
-
-        bindSearchInputs() {
-          const bindSuggestionInput = (input, container, onSelect) => {
-            const render = () => UI.renderSchoolSuggestions(input.value, input, container, onSelect);
-            input.addEventListener("input", render);
-            input.addEventListener("focus", render);
-          };
-
-          bindSuggestionInput(Dom.landingSchoolInput, Dom.landingSuggestions, (value) => UI.selectLandingSchool(value));
-          bindSuggestionInput(Dom.schoolSearchInput, Dom.suggestionsEl, (value) => UI.selectDiscoverySchool(value));
-          bindSuggestionInput(Dom.signupSchoolInput, Dom.signupSchoolSuggestions, (value) => UI.selectSignupSchool(value));
-        },
-
-        bindDocumentEvents() {
-          document.addEventListener("click", (event) => {
-            if (!Dom.landingSuggestions.contains(event.target) && event.target !== Dom.landingSchoolInput) {
-              UI.hideSuggestions(Dom.landingSchoolInput, Dom.landingSuggestions);
-            }
-            if (!Dom.suggestionsEl.contains(event.target) && event.target !== Dom.schoolSearchInput) {
-              UI.hideSuggestions(Dom.schoolSearchInput, Dom.suggestionsEl);
-            }
-            if (!Dom.signupSchoolSuggestions.contains(event.target) && event.target !== Dom.signupSchoolInput) {
-              UI.hideSuggestions(Dom.signupSchoolInput, Dom.signupSchoolSuggestions);
-            }
-          });
-
-          Dom.filterBar.addEventListener("click", (event) => {
-            const button = event.target.closest("[data-filter]");
-            if (!button) return;
-            Store.setFilter(button.dataset.filter);
-            [...Dom.filterBar.querySelectorAll("[data-filter]")].forEach((chip) => chip.classList.toggle("active", chip === button));
-            UI.renderClubGrid();
-          });
-
-          window.addEventListener("hashchange", () => UI.syncHashRoute());
-        },
-
-        bindForms() {
-          Dom.signupForm.addEventListener("submit", (event) => Actions.handleSignupSubmit(event));
-          Dom.signinForm.addEventListener("submit", (event) => Actions.handleSigninSubmit(event));
-          Dom.eventForm.addEventListener("submit", (event) => Actions.handleEventSubmit(event));
-          Dom.settingsForm.addEventListener("submit", (event) => Actions.handleSettingsSubmit(event));
-          Dom.eventForm.addEventListener("input", () => UI.updatePreview());
-          Dom.eventForm.addEventListener("change", () => UI.updatePreview());
-        },
-
-        bindSettingsActions() {
-          Dom.settingsEditBtn.addEventListener("click", () => Actions.startSettingsEdit());
-          Dom.settingsCancelBtn.addEventListener("click", () => Actions.cancelSettingsEdit());
-          Dom.copyCalendarLinkBtn.addEventListener("click", () => Actions.copyCalendarLink());
-          Dom.googleCalendarLinkBtn.addEventListener("click", () => Actions.openGoogleFeed());
-          Dom.appleCalendarLinkBtn.addEventListener("click", () => Actions.openAppleFeed());
-          Dom.signoutBtn.addEventListener("click", () => Actions.handleSignOut());
-        },
-
-        async restoreSession() {
-          if (!Utils.isSupabaseConfigured()) return;
-          await SupabaseApi.restoreSession();
-          if (Store.state.activeClub) {
-            await UI.hydrateDashboard();
-          }
-        },
-
-        hydrateInitialInputs() {
-          if (!Store.state.currentSchool) return;
-          Dom.landingSchoolInput.value = Store.state.currentSchool;
-          Dom.schoolSearchInput.value = Store.state.currentSchool;
-        },
-
-        async init() {
-          this.bindRouteTriggers();
-          this.bindTabs();
-          this.bindNavigation();
-          this.bindSearchInputs();
-          this.bindDocumentEvents();
-          this.bindForms();
-          this.bindSettingsActions();
-          this.hydrateInitialInputs();
-          UI.updatePreview();
-          UI.setTab("events");
-          await this.restoreSession();
-          UI.syncHashRoute();
-        }
-      };
-
-      App.init();
-    })();
-  </script>
+  <script type="module" src="./src/app.js"></script>
 </body>
 </html>

@@ -15,6 +15,10 @@ type EventRow = {
   address: string | null;
   room: string | null;
   description: string | null;
+  created_at: string | null;
+  updated_at: string | null;
+  sequence: number | null;
+  cancelled: boolean | null;
 };
 
 const corsHeaders = {
@@ -36,9 +40,24 @@ function fmt(dateStr: string, timeStr: string) {
   return date.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
 }
 
+function fmtUtcTimestamp(value: string | null | undefined) {
+  const date = new Date(value || Date.now());
+  return date.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
+}
+
+function shouldKeepInFeed(eventItem: EventRow) {
+  if (!eventItem.cancelled) return true;
+  const reference = eventItem.updated_at || eventItem.created_at;
+  if (!reference) return true;
+  const ageMs = Date.now() - new Date(reference).getTime();
+  return ageMs <= 30 * 24 * 60 * 60 * 1000;
+}
+
 function buildEventBlock(eventItem: EventRow, clubName: string) {
   const description = escapeICS(eventItem.description || "");
   const location = escapeICS([eventItem.address, eventItem.room].filter(Boolean).join(", "));
+  const lastModified = fmtUtcTimestamp(eventItem.updated_at || eventItem.created_at);
+  const sequence = Number.isFinite(eventItem.sequence) ? Number(eventItem.sequence) : 0;
 
   return [
     "BEGIN:VEVENT",
@@ -46,9 +65,11 @@ function buildEventBlock(eventItem: EventRow, clubName: string) {
     `SUMMARY:${escapeICS(`${eventItem.title} - ${clubName}`)}`,
     `DTSTART:${fmt(eventItem.date, eventItem.start_time)}`,
     `DTEND:${fmt(eventItem.date, eventItem.end_time)}`,
+    `LAST-MODIFIED:${lastModified}`,
+    `SEQUENCE:${sequence}`,
     `LOCATION:${location}`,
     `DESCRIPTION:${description}`,
-    "STATUS:CONFIRMED",
+    `STATUS:${eventItem.cancelled ? "CANCELLED" : "CONFIRMED"}`,
     "END:VEVENT"
   ].join("\r\n");
 }
@@ -116,6 +137,7 @@ Deno.serve(async (request) => {
     `X-WR-CALNAME:${escapeICS(club.club_name)}`,
     `X-WR-CALDESC:${escapeICS(`Club Cal feed for ${club.club_name}`)}`,
     ...((events || []) as EventRow[])
+      .filter((eventItem) => shouldKeepInFeed(eventItem))
       .sort((a, b) => `${a.date}T${a.start_time}`.localeCompare(`${b.date}T${b.start_time}`))
       .map((eventItem) => buildEventBlock(eventItem, club.club_name)),
     "END:VCALENDAR"
@@ -126,7 +148,7 @@ Deno.serve(async (request) => {
     headers: {
       ...corsHeaders,
       "Content-Type": "text/calendar; charset=utf-8",
-      "Cache-Control": "public, max-age=300, s-maxage=300",
+      "Cache-Control": "no-cache, no-store",
       "Content-Disposition": `inline; filename="${club.id}.ics"`
     }
   });
